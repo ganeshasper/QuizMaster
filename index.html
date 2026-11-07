@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizMaster - Learn & Practice</title>
+
+    <meta name="description" content="QuizMaster is an educational quiz platform for GK, Computer, Science, Mathematics, History and English.">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">🎓 QuizMaster</a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#daily">Daily Quiz</a>
+            <a href="#progress">Progress</a>
+        </nav>
+
+        <button id="themeBtn" class="theme-btn" aria-label="Toggle dark mode">
+            🌙
+        </button>
+    </header>
+
+    <main>
+
+        <!-- Welcome Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="welcome-label">WELCOME TO QUIZMASTER</span>
+
+                <h1>Learn More. <span>Practice Better.</span></h1>
+
+                <p>
+                    Improve your knowledge with daily quizzes.
+                    Learn new things and track your progress.
+                </p>
+
+                <a href="#subjects" class="primary-btn">
+                    Start Learning →
+                </a>
+            </div>
+
+            <div class="hero-icon">🧠</div>
+        </section>
+
+        <!-- Subjects -->
+        <section class="section" id="subjects">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Explore Subjects</h2>
+                    <p>Choose your favourite subject and start practicing.</p>
+                </div>
+            </div>
+
+            <input
+                type="search"
+                id="subjectSearch"
+                class="search-box"
+                placeholder="🔍 Search subjects..."
+                aria-label="Search subjects"
+            >
+
+            <div class="subject-grid" id="subjectGrid">
+
+                <button class="subject-card" data-subject="GK">
+                    <span>🌍</span>
+                    <h3>General Knowledge</h3>
+                    <p>Test your general awareness.</p>
+                </button>
+
+                <button class="subject-card" data-subject="Computer">
+                    <span>💻</span>
+                    <h3>Computer</h3>
+                    <p>Learn computer fundamentals.</p>
+                </button>
+
+                <button class="subject-card" data-subject="Science">
+                    <span>🔬</span>
+                    <h3>Science</h3>
+                    <p>Explore science and discoveries.</p>
+                </button>
+
+                <button class="subject-card" data-subject="Mathematics">
+                    <span>🧮</span>
+                    <h3>Mathematics</h3>
+                    <p>Practice numbers and calculations.</p>
+                </button>
+
+                <button class="subject-card" data-subject="History">
+                    <span>🏛️</span>
+                    <h3>History</h3>
+                    <p>Discover the past.</p>
+                </button>
+
+                <button class="subject-card" data-subject="English">
+                    <span>📖</span>
+                    <h3>English</h3>
+                    <p>Improve your English knowledge.</p>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Daily Challenge -->
+        <section class="daily-section" id="daily">
+            <div>
+                <span class="daily-label">⭐ DAILY CHALLENGE</span>
+                <h2>Challenge Yourself Today!</h2>
+                <p>Take a daily quiz and improve your knowledge.</p>
+            </div>
+
+            <button id="dailyQuizBtn" class="primary-btn">
+                Start Daily Quiz →
+            </button>
+        </section>
+
+        <!-- Quiz Settings -->
+        <section class="section" id="quizSetup">
+            <h2>Quiz Settings</h2>
+            <p>Choose your quiz preferences.</p>
+
+            <div class="settings-grid">
+
+                <label>
+                    Subject
+                    <select id="subjectSelect">
+                        <option value="GK">General Knowledge</option>
+                        <option value="Computer">Computer</option>
+                        <option value="Science">Science</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="History">History</option>
+                        <option value="English">English</option>
+                    </select>
+                </label>
+
+                <label>
+                    Difficulty
+                    <select id="difficulty">
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
+                </label>
+
+                <label>
+                    Language
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </label>
+
+                <label>
+                    Quiz Time
+                    <select id="quizTime">
+                        <option value="1">1 Minute</option>
+                        <option value="2">2 Minutes</option>
+                        <option value="5" selected>5 Minutes</option>
+                        <option value="10">10 Minutes</option>
+                        <option value="15">15 Minutes</option>
+                        <option value="30">30 Minutes</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <button id="startQuizBtn" class="primary-btn">
+                Start Quiz 🚀
+            </button>
+        </section>
+
+        <!-- Quiz Area -->
+        <section class="section quiz-area" id="quizArea" hidden>
+            <h2 id="quizTitle">Your Quiz</h2>
+
+            <div class="quiz-info">
+                <span id="questionCount">Question 1</span>
+                <span id="timer">Time: 05:00</span>
+            </div>
+
+            <div id="questionBox"></div>
+
+            <div id="answerOptions"></div>
+
+            <button id="nextQuestionBtn" class="primary-btn">
+                Next Question →
+            </button>
+        </section>
+
+        <!-- Progress -->
+        <section class="section" id="progress">
+            <h2>Your Learning Progress</h2>
+            <p>Keep practicing and track your improvement.</p>
+
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <span>📝</span>
+                    <h3 id="totalQuizzes">0</h3>
+                    <p>Quizzes Taken</p>
+                </div>
+
+                <div class="progress-card">
+                    <span>🏆</span>
+                    <h3 id="bestScore">0%</h3>
+                    <p>Best Score</p>
+                </div>
+
+                <div class="progress-card">
+                    <span>⭐</span>
+                    <h3 id="averageScore">0%</h3>
+                    <p>Average Score</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h2>🎓 QuizMaster</h2>
+        <p>Learn Smart. Practice Daily. Improve Every Day!</p>
+        <p>© 2026 QuizMaster. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
